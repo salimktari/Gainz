@@ -34,7 +34,10 @@ class FeatureWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            CircleAvatar(radius: 28, backgroundColor: color.withOpacity(0.15)),
+            CircleAvatar(
+              radius: 28,
+              backgroundColor: color.withValues(alpha: 0.15),
+            ),
             const SizedBox(width: 16),
             Expanded(
               child: Text(

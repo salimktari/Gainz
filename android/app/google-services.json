@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31904357952",
+    "project_id": "gainz-e9b6c",
+    "storage_bucket": "gainz-e9b6c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31904357952:android:4925c3875950d4e39d89a5",
+        "android_client_info": {
+          "package_name": "com.example.gainz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDj5o4uHFdM5KUEFljolg6-gjVXzzKUa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

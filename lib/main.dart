@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:gainz/components/feature.dart';
+import 'package:gainz/components/quote.dart';
 import 'package:gainz/pages/Poids.dart';
 import 'package:gainz/pages/Programme.dart';
 import 'package:gainz/pages/Timer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'pages/login.dart';
+import 'pages/register.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -27,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/poids': (context) => const Poids(),
         '/programme': (context) => const Programme(),
         '/timer': (context) => const Timer(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }
@@ -49,6 +58,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Quote(),
+
             //head
             const Text(
               "No pains No gains",
