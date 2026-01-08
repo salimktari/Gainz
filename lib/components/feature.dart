@@ -3,22 +3,20 @@ import 'package:flutter/material.dart';
 class FeatureWidget extends StatelessWidget {
   final String title;
   final Color color;
-  final VoidCallback onPressed; // 👈 tu ajoutes ceci
+  final VoidCallback onPressed;
 
   const FeatureWidget({
     super.key,
     required this.title,
     required this.color,
-    required this.onPressed, // 👈 et ceci
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed, // 👈 c'est ici que se fait le clic
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.zero, // pour enlever les marges du bouton
-      ),
+      onPressed: onPressed,
+      style: TextButton.styleFrom(padding: EdgeInsets.zero),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(

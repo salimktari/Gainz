@@ -4,6 +4,7 @@ import 'package:gainz/components/quote.dart';
 import 'package:gainz/pages/Poids.dart';
 import 'package:gainz/pages/Programme.dart';
 import 'package:gainz/pages/Timer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'pages/login.dart';
@@ -28,12 +29,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: {
         '/': (context) => HomePage(),
         '/poids': (context) => const Poids(),
         '/programme': (context) => const Programme(),
-        '/timer': (context) => const Timer(),
+        '/timer': (context) => const TimerPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
       },
@@ -43,6 +44,18 @@ class MyApp extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  // Déconnecte l'utilisateur et renvoie vers la page de login
+  Future<void> deconnexion(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    if (context.mounted) {
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/login',
+        (route) => false,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +121,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => const Timer()),
+                  MaterialPageRoute(builder: (_) => const TimerPage()),
                 );
               },
             ),
@@ -125,6 +138,15 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const Poids()),
                 );
               },
+            ),
+
+            const SizedBox(height: 32),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => deconnexion(context),
+                child: const Text('Déconnexion'),
+              ),
             ),
           ],
         ),
