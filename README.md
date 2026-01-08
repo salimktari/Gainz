@@ -1,16 +1,55 @@
-# gainz
+# GAINZ – Flutter Fitness App
 
-A new Flutter project.
+GAINZ est une application mobile développée avec Flutter, permettant aux utilisateurs de rester motivés, organiser leurs entraînements et suivre leur progression sportive.  
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+##  Objectifs du projet
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Mettre en pratique Flutter (UI, navigation, widgets)
+- Implémenter une authentification utilisateur
+- Gérer l’état de l’application proprement
+- Persister les données utilisateur dans le cloud
+- Travailler avec une architecture claire et maintenable
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+##  Fonctionnalités
+
+###  Authentification (Firebase)
+- Inscription utilisateur
+- Connexion sécurisée
+- Gestion des sessions avec Firebase Authentication
+
+###  Motivation
+- Affichage de citations motivationnelles
+- Appel API externe
+- Bouton pour charger une nouvelle citation
+
+###  Programme d’entraînement
+- Page dédiée aux programmes
+- Base prête pour l’ajout d’exercices
+
+###  Timer d’exercices
+- Timer simple pour accompagner les séances
+- Gestion de l’état avec StatefulWidget
+
+###  Suivi du poids
+- Ajout du poids utilisateur
+- Historique stocké dans Firestore
+- Données liées à l’utilisateur connecté
+
+---
+
+##  Architecture du projet
+
+Le projet est structuré selon une séparation claire des responsabilités :
+
+
+lib/
+ ├─ components/    # Widgets réutilisables (FeatureWidget, Quote, etc.)
+ ├─ pages/         # Écrans principaux (Home, Login, Programme, Timer, Poids)
+ ├─ services/      # Accès API et Firebase
+ ├─ providers/     # Gestion d’état avec Provider
+ └─ main.dart      # Point d’entrée, routes et initialisation Firebase
